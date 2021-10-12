@@ -9,7 +9,7 @@ import warnings
 st.set_page_config(page_title="Crop Recommender", page_icon="🌿", layout='centered', initial_sidebar_state="collapsed")
 
 def load_model(modelfile):
-	loaded_model = pickle.load(open(modelfile, 'rb'))
+	loaded_model = pickle.load(open(modelfile, 'finalized_model.sav'))
 	return loaded_model
 
 def main():
@@ -50,7 +50,7 @@ def main():
         
         if st.button('Predict'):
 
-            loaded_model = load_model('finalized_model.sav')
+            loaded_model = load_model('model.pkl')
             prediction = loaded_model.predict(single_pred)
             col1.write('''
 		    ## Results 🔍 
